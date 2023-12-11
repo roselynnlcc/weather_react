@@ -37,8 +37,6 @@ export default function Home() {
       const MAX_CITY_NUMBER = 8;
       try {
         const data = await getFormattedWeatherData({ ...query, units });
-        // ... existing logic
-
       // Only update weather state if valid data is returned
       if (data) {
         setWeather(data);
@@ -63,10 +61,6 @@ export default function Home() {
         setIsLoading(false); // Stop loading in case of error
       }
     };
-
-
-
-    
 
     fetchWeather();
   }, [query, units, isNewSearch]);
