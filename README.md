@@ -5,11 +5,21 @@
 Responsive Weather Tracking is a comprehensive web application designed to provide real-time weather updates and forecasts. Leveraging the OpenWeather API, it offers users the ability to search for weather conditions in different cities, view hourly and daily forecasts, and customize their weather tracking experience. With a focus on user-friendliness and interactive features, this application stands out with its unique "listen to weather" functionality and a beautiful, dynamic background that changes based on the time of day, adorned with images from the iconic Studio Ghibli movies.
 
 ## Visuals
-![Landing Page](/docs/media/01_firstpage.png)
-![Up to 8 cities can be added](/docs/media/02_addCity.png)
-![Responsive design on iPad Mini](/docs/media/03_Responsive_iPadMini.jpeg)
-![Responsive design on iPad Pro](/docs/media/03_Responsive_iPadPro.jpeg)
-![Responsive design on mobile](/docs/media/03_Responsive_mobile.jpeg)
+
+#### Landing Page
+<img src="/docs/media/01_firstpage.png" alt="Landing Page" width="600"/>
+
+#### Up to 8 Cities Can Be Added
+<img src="/docs/media/02_addCity.png" alt="Up to 8 cities can be added" width="600"/>
+
+#### Responsive Design on iPad Mini
+<img src="/docs/media/03_Responsive_iPad Mini.jpeg" alt="Responsive design on iPad Mini" width="600"/>
+
+#### Responsive Design on iPad Pro
+<img src="/docs/media/03_Responsive_iPad Pro.jpeg" alt="Responsive design on iPad Pro" width="600"/>
+
+#### Responsive Design on Mobile
+<img src="/docs/media/03_Responsive_mobile.jpeg" alt="Responsive design on mobile" width="600"/>
 
 
 ## Installation
