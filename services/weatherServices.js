@@ -1,12 +1,13 @@
-const API_KEY = process.env.OPENWEATHER_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5/";
 import { DateTime } from 'luxon';
 
 
 // use this function to call different API
 const getWeatherData = (infoType, searchParams) => {
+  const cleanedApiKey = API_KEY.replace(/"/g, ''); // Removes all quotation marks
   const url = new URL(BASE_URL + "/" + infoType);
-  url.search = new URLSearchParams({...searchParams, appid:API_KEY});
+  url.search = new URLSearchParams({...searchParams, appid:cleanedApiKey});
   console.log(url.href);
 
   return fetch(url)
