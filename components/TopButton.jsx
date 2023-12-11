@@ -7,7 +7,7 @@ function TopButton({ cities, updateQuery }) {
         <button
           key={index}
           className="text-white text-lg font-medium mb-2"
-          style={{ minWidth: "25%" }}
+          style={{ minWidth: "20%" }}
           onClick={() => updateQuery({ q: city }, false)}
         >
           {city}

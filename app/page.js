@@ -15,7 +15,9 @@ export default function Home() {
   const initialCities = ["Calgary", "Toronto", "London", "Sydney"];
   const [cities, setCities] = useState(initialCities);
   const [isNewSearch, setIsNewSearch] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const tempSymbol = units === "metric" ? "°C" : "°F";
+  
 
   const addCity = useCallback(
     (newCity) => {
@@ -31,8 +33,12 @@ export default function Home() {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const data = await getFormattedWeatherData({ ...query, units });
+      setIsLoading(true);
       const MAX_CITY_NUMBER = 8;
+      try {
+        const data = await getFormattedWeatherData({ ...query, units });
+        // ... existing logic
+
       // Only update weather state if valid data is returned
       if (data) {
         setWeather(data);
@@ -50,10 +56,36 @@ export default function Home() {
         }
         setIsNewSearch(false);
       }
+
+        setIsLoading(false); // Stop loading after data is fetched
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+        setIsLoading(false); // Stop loading in case of error
+      }
     };
+
+
+
+    
 
     fetchWeather();
   }, [query, units, isNewSearch]);
+
+    // Loading page content
+    if (isLoading) {
+      return (
+        <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-sky-200 via-blue-200 to-green-100">
+          <div className="flex flex-col justify-center items-center p-4 w-60 h-60 bg-white bg-opacity-90 rounded-full shadow-xl border-2 border-dotted border-sky-600">
+            <div className="text-center ">
+              <p className="text-4xl p-1 font-semibold text-sky-500">Ghibli</p>
+              <p className="text-3xl p-1 font-semibold text-sky-400">Meteo</p>
+            </div>
+          </div>
+          <p className="animate-pulse text-lg font-medium mt-4 text-white text-center">Loading ...</p>
+        </div>
+      );
+    }
+    
 
   const updateQuery = (newQuery, newSearch = false) => {
     // Check if the city is already in the list
@@ -102,9 +134,11 @@ export default function Home() {
       <div className="lg:flex lg:flex-row lg:mt-10 lg:mb-20">
       {/* Current Weather area */}
         <div className="lg:w-2/5 lg:mr-4 bg-violet-100 bg-opacity-60 rounded-md">
+        {isLoading}
           {weather && (
             <div>
               <TimeAndLocation weather={weather} />
+              
               <TemperatureAndDetails
                 weather={weather}
                 tempSymbol={tempSymbol}
