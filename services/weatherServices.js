@@ -9,7 +9,7 @@ const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({...searchParams, appid:cleanedApiKey});
   console.log(url.href);
-
+  alert(url.href);
   return fetch(url)
   .then((res) => res.json())
 };
