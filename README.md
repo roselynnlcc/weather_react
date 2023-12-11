@@ -1,5 +1,5 @@
 
-# Responsive Weather Tracking
+# Ghibli Meteo: Responsive Weather Tracking
 
 ## Description
 Responsive Weather Tracking is a comprehensive web application designed to provide real-time weather updates and forecasts. Leveraging the OpenWeather API, it offers users the ability to search for weather conditions in different cities, view hourly and daily forecasts, and customize their weather tracking experience. With a focus on user-friendliness and interactive features, this application stands out with its unique "listen to weather" functionality and a beautiful, dynamic background that changes based on the time of day, adorned with images from the iconic Studio Ghibli movies.
