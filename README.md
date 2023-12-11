@@ -19,7 +19,7 @@ Responsive Weather Tracking is a comprehensive web application designed to provi
 <img src="/docs/media/03_Responsive_iPadMini.jpeg" alt="Responsive design on iPad Mini" width="600"/>
 
 #### Responsive Design on Mobile
-<img src="/docs/media/03_Responsive_mobile.jpeg" alt="Responsive design on mobile" width="300"/>
+<img src="/docs/media/03_Responsive_mobile.png" alt="Responsive design on mobile" width="250"/>
 
 ## Installation
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
