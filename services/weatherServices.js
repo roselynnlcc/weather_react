@@ -8,8 +8,6 @@ const getWeatherData = (infoType, searchParams) => {
   const cleanedApiKey = API_KEY.replace(/"/g, ''); // Removes all quotation marks
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({...searchParams, appid:cleanedApiKey});
-  console.log(url.href);
-  alert(url.href);
   return fetch(url)
   .then((res) => res.json())
 };
