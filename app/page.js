@@ -12,7 +12,7 @@ export default function Home() {
   const [query, setQuery] = useState({ q: "calgary" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
-  const initialCities = ["Calgary", "Toronto", "London", "Sydney"];
+  const initialCities = ["Calgary", "Hong Kong", "London", "Sydney"];
   const [cities, setCities] = useState(initialCities);
   const [isNewSearch, setIsNewSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
