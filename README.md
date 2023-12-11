@@ -12,15 +12,14 @@ Responsive Weather Tracking is a comprehensive web application designed to provi
 #### Up to 8 Cities Can Be Added
 <img src="/docs/media/02_addCity.png" alt="Up to 8 cities can be added" width="600"/>
 
-#### Responsive Design on iPad Mini
-<img src="/docs/media/03_Responsive_iPad Mini.jpeg" alt="Responsive design on iPad Mini" width="600"/>
-
 #### Responsive Design on iPad Pro
-<img src="/docs/media/03_Responsive_iPad Pro.jpeg" alt="Responsive design on iPad Pro" width="600"/>
+<img src="/docs/media/03_Responsive_iPadPro.jpeg" alt="Responsive design on iPad Pro" width="600"/>
+
+#### Responsive Design on iPad Mini
+<img src="/docs/media/03_Responsive_iPadMini.jpeg" alt="Responsive design on iPad Mini" width="600"/>
 
 #### Responsive Design on Mobile
-<img src="/docs/media/03_Responsive_mobile.jpeg" alt="Responsive design on mobile" width="600"/>
-
+<img src="/docs/media/03_Responsive_mobile.jpeg" alt="Responsive design on mobile" width="300"/>
 
 ## Installation
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
