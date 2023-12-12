@@ -5,6 +5,7 @@ import Inputs from "@/components/Inputs";
 import TimeAndLocation from "@/components/TimeAndLocation";
 import TemperatureAndDetails from "@/components/TemperatureAndDetails";
 import Forecast from "@/components/Forecast";
+import Footer from "@/components/Footer";
 import getFormattedWeatherData from "@/services/weatherServices";
 import { getBackgroundImage } from "../utils/backgroundHelpers";
 
@@ -158,6 +159,7 @@ export default function Home() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
