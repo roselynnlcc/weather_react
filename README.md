@@ -67,7 +67,7 @@ The core purpose of this application is to fetch and display weather data from t
 
 - A 5-hourly forecast and a 5-day weather outlook.
 - A city search functionality, allowing users to find weather details by entering a city name or using their current location.
-- An option to add up to 5 cities to a personalized panel for easy access to favored locations.
+- An option to add up to 8 cities to a personalized panel for easy access to favored locations.
 - Temperature units are displayed in metric by default, with the option for users to switch to imperial units.
 - A unique "listen to weather" feature, providing an audible description of the current and next day's weather.
 - Dynamic background images, sourced from Studio Ghibli films, that change according to the local time (day or night) of the selected city.
