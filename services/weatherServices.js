@@ -1,9 +1,7 @@
 const API_KEY = process.env.NEXT_PUBLIC_WEATHERAPI_KEY;
-const BASE_URL = "http://api.weatherapi.com/v1/";
-console.log(API_KEY);
+const BASE_URL = "http://api.weatherapi.com/v1";
 
-// 1. Get CurrentWeather, destructure it, format it
-
+// 1. Get CurrentWeather
 async function fetchCurrentWeather(location, units) {
   console.log(`${BASE_URL}/current.json?key=${API_KEY}&q=${location}`);
   const response = await fetch(
@@ -35,7 +33,7 @@ async function fetchCurrentWeather(location, units) {
   };
 }
 
-// 2. Get ForecastWeather, destructure it, format it
+// 2. Get ForecastWeather
 async function fetchForecastWeather(location, units, days, hours) {
   const response = await fetch(
     `${BASE_URL}/forecast.json?key=${API_KEY}&q=${location}&days=${days}`
@@ -98,9 +96,3 @@ async function getFormattedWeatherData({ q, units, days = 4, hours = 5 }) {
   }
 }
 
-const iconUrlFromCode = (code) =>
-  `http://openweathermap.org/img/wn/${code}@2x.png`;
-
-export default getFormattedWeatherData;
-
-export { iconUrlFromCode };
