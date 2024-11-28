@@ -106,3 +106,4 @@ async function getFormattedWeatherData({ q, units, days = 4, hours = 5 }) {
   }
 }
 
+export default getFormattedWeatherData;

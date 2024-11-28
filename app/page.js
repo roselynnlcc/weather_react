@@ -10,7 +10,7 @@ import getFormattedWeatherData from "@/services/weatherServices";
 import { getBackgroundImage } from "../utils/backgroundHelpers";
 
 export default function Home() {
-  const [query, setQuery] = useState("Calgary");
+  const [query, setQuery] = useState({ q: "Calgary" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const initialCities = ["Calgary", "Hong Kong", "London", "Sydney"];
@@ -19,6 +19,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const tempSymbol = units === "metric" ? "°C" : "°F";
   const windSpeedSymbol = units === "metric" ? "km/h" : "mph";
+
+  console.log("query before anything", query.q);
 
   const addCity = useCallback(
     (newCity) => {
@@ -36,9 +38,12 @@ export default function Home() {
     const fetchWeather = async () => {
       setIsLoading(true);
       const MAX_CITY_NUMBER = 8;
+      console.log("Starting fetchWeather");
       try {
         console.log(query);
         console.log(units);
+        console.log("Calling getFormattedWeatherData with:", { ...query, units });
+
         const data = await getFormattedWeatherData({ ...query, units });
         console.log(data);
         // Only update weather state if valid data is returned
