@@ -1,5 +1,5 @@
 const API_KEY = process.env.NEXT_PUBLIC_WEATHERAPI_KEY;
-const BASE_URL = "http://api.weatherapi.com/v1";
+const BASE_URL = "https://api.weatherapi.com/v1";
 
 console.log(API_KEY);
 console.log(BASE_URL);
