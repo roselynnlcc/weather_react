@@ -1,6 +1,9 @@
 const API_KEY = process.env.NEXT_PUBLIC_WEATHERAPI_KEY;
 const BASE_URL = "http://api.weatherapi.com/v1";
 
+console.log(API_KEY);
+console.log(BASE_URL);
+
 // 1. Get CurrentWeather
 async function fetchCurrentWeather(location, units) {
   console.log(`${BASE_URL}/current.json?key=${API_KEY}&q=${location}`);
@@ -8,6 +11,7 @@ async function fetchCurrentWeather(location, units) {
     `${BASE_URL}/current.json?key=${API_KEY}&q=${location}`
   );
   const data = await response.json();
+  console.log("current", data);
 
 
   if (data.error) {
@@ -39,6 +43,7 @@ async function fetchForecastWeather(location, units, days, hours) {
     `${BASE_URL}/forecast.json?key=${API_KEY}&q=${location}&days=${days}`
   );
   const data = await response.json();
+  console.log("forecast data", data);
 
   if (data.error) {
     throw new Error(
