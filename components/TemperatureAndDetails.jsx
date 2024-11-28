@@ -9,7 +9,7 @@ import {
 
 import { iconUrlFromCode } from "@/services/weatherServices";
 
-const TemperatureAndDetails = ({ weather, tempSymbol}) => {
+const TemperatureAndDetails = ({ weather, tempSymbol, windSpeedSymbol}) => {
   return (
     <div>
       <div className="flex items-center justify-center py-4 text-xl font-medium">
@@ -31,7 +31,7 @@ const TemperatureAndDetails = ({ weather, tempSymbol}) => {
 
       <div className="flex flex-row items-center justify-center space-x-2 text-black text-sm pt-2 pb-4">
         <UilWind />
-        <span className="font-medium ml-1">{`${weather.speed}km/h`}</span>
+        <span className="font-medium ml-1">{`${weather.speed}${windSpeedSymbol}`}</span>
         <p className="font-light">|</p>
         <UilTear />
         <span className="font-medium ml-1">{`${weather.humidity.toFixed()}%`}</span>

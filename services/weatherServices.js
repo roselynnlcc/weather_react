@@ -1,5 +1,6 @@
 const API_KEY = process.env.NEXT_PUBLIC_WEATHERAPI_KEY;
 const BASE_URL = "http://api.weatherapi.com/v1/";
+console.log(API_KEY);
 
 // 1. Get CurrentWeather, destructure it, format it
 

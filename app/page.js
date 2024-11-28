@@ -38,7 +38,6 @@ export default function Home() {
       const MAX_CITY_NUMBER = 8;
       try {
         const data = await getFormattedWeatherData({ ...query, units });
-        console.log("fetched data", data);
         // Only update weather state if valid data is returned
         if (data) {
           setWeather(data);
@@ -139,6 +138,7 @@ export default function Home() {
               <TemperatureAndDetails
                 weather={weather}
                 tempSymbol={tempSymbol}
+                windSpeedSymbol={windSpeedSymbol}
               />
             </div>
           )}

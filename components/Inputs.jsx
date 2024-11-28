@@ -13,8 +13,6 @@ function Inputs({ setQuery, units, setUnits, cities, updateQuery, weather }) {
   };
 
   const handleInputKeyUp = (e) => {
-    console.log("key up");
-    console.log(e.key);
     if (e.key === "Enter") {
       handleSearchClick();
     }
@@ -38,7 +36,6 @@ function Inputs({ setQuery, units, setUnits, cities, updateQuery, weather }) {
   };
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
-    console.log("selectedUnit", selectedUnit);
     if (units !== selectedUnit) setUnits(selectedUnit);
   };
 
