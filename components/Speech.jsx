@@ -6,7 +6,6 @@ import { UilVolume } from "@iconscout/react-unicons";
 const Speech = ({ weather }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const currentTime = DateTime.now().toSeconds();
       const speechSynthesis = window.speechSynthesis;
 
       for (const voice of speechSynthesis.getVoices()) {
@@ -27,17 +26,15 @@ const Speech = ({ weather }) => {
 
   const handleSpeakClick = () => {
     if (typeof window !== "undefined") {
-      const currentTime = DateTime.now().toSeconds();
-      const speechText = `The time now is ${formatToLocalTime(
-        currentTime,
-        weather.timezone
-      )} in ${weather.name}. Current temperature is ${weather.temp.toFixed()}. 
+      const currentTime = DateTime.fromSeconds(weather.localTime).toFormat(
+        "ccc, dd LLL yyyy | hh:mm a"
+      );
+      const speechText = `The time now is ${currentTime} in ${
+        weather.city
+      }. Current temperature is ${weather.temperature.toFixed()} degrees. 
        Today, we have ${
-         weather.details
-       } with a high of ${weather.temp_max.toFixed()} and a low of ${weather.temp_min.toFixed()}. 
-       Tomorrow we can expect ${
-         weather.daily[0].details
-       } with a high of ${weather.daily[0].temp[1].toFixed()} and a low of ${weather.daily[0].temp[0].toFixed()}`;
+         weather.condition
+       } with a high of ${weather.daily[0].temperature.max.toFixed()} and a low of ${weather.daily[0].temperature.min.toFixed()}.`;
       speak(speechText);
     }
   };

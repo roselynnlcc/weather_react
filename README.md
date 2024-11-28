@@ -4,6 +4,9 @@
 ## Description
 Responsive Weather Tracking is a comprehensive web application designed to provide real-time weather updates and forecasts. Leveraging the OpenWeather API, it offers users the ability to search for weather conditions in different cities, view hourly and daily forecasts, and customize their weather tracking experience. With a focus on user-friendliness and interactive features, this application stands out with its unique "listen to weather" functionality and a beautiful, dynamic background that changes based on the time of day, adorned with images from the iconic Studio Ghibli movies.
 
+## Update Notice
+This project was initially built using the OpenWeather API. It has been updated to use the [WeatherAPI](https://www.weatherapi.com/) for fetching real-time weather data and forecasts. This change was made to leverage enhanced data accuracy, better API features, and an improved user experience.
+
 ## Visuals
 
 #### Landing Page
@@ -72,11 +75,15 @@ The core purpose of this application is to fetch and display weather data from t
 - A unique "listen to weather" feature, providing an audible description of the current and next day's weather.
 - Dynamic background images, sourced from Studio Ghibli films, that change according to the local time (day or night) of the selected city.
 
-## Technology Stack
-- Next.js
-- React
-- `useState` and `useEffect` for managing side effects
-- OpenWeather API for fetching weather data
+### Technology Stack
+- **Frontend Framework**: [Next.js](https://nextjs.org/) - A React framework for SSR and SSG.
+- **UI Library**: [React](https://reactjs.org/) - For creating interactive and reusable UI components.
+- **Date/Time Formatting**: [Luxon](https://moment.github.io/luxon/) - For seamless handling and formatting of dates and times.
+- **Weather Data API**: [WeatherAPI](https://www.weatherapi.com/) - Fetching weather data and forecasts.
+- **Text-to-Speech**: [SpeechSynthesis API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - For auditory weather updates.
+- **Icons**: [React Unicons](https://iconscout.com/unicons/explore/line) - Lightweight SVG icons.
+- **Styling**: Tailwind CSS (if used) - For responsive, utility-first CSS design.
+
 
 ## Features
 - Real-Time Weather Data: Access up-to-date weather information for any city.
@@ -88,7 +95,7 @@ The core purpose of this application is to fetch and display weather data from t
 - Responsive Design: Optimized for a seamless experience across various devices and screen sizes.
 
 ## Acknowledgments
-A big thank you to OpenWeather API for offering the essential weather data that powers our app, making real-time weather tracking and forecasts possible.
+A big thank you to WeatherAPI.com for offering the essential weather data that powers our app, making real-time weather tracking and forecasts possible.
 
 Special thanks also to Studio Ghibli for providing the stunning background images, featuring scenes from "Spirited Away," "When Marnie Was There," "Nausicaä of the Valley of the Wind," and "Arrietty."
 
@@ -97,12 +104,12 @@ Additionally, this project was greatly assisted by the tutorial "Build A Weather
 Heartfelt gratitude to Aaron, our instructor, for his invaluable teachings, guidance, and support throughout the development process.
 
 ## Resources
-- [OpenWeatherAPI] - Source of weather and forecast data
+- [WeatherAPI.co] - Source of weather and forecast data
 - [Studio Ghibli] - Source of wallpaper
 - [Build A Weather App With React JS |...] - A detailed tutorial created by Yash Patel
 
 [//]: # 
-   [OpenWeatherAPI]: <https://openweathermap.org/api>
+   [WeatherAPI.co]: <https://www.weatherapi.com/>
    [Studio Ghibli]: <https://www.ghibli.jp/>
    [Build A Weather App With React JS |...]: <https://www.youtube.com/watch?v=cWk5EKVxrgo>
    

@@ -1,5 +1,4 @@
 import React from "react";
-import { iconUrlFromCode } from "../services/weatherServices";
 
 const Forecast = ({ title, items, tempSymbol }) => {
   return (
@@ -11,27 +10,38 @@ const Forecast = ({ title, items, tempSymbol }) => {
       </div>
       <hr className="mt-2 mb-2 mx-2" />
       <div className="flex flex-row items-center justify-between text-black px-3 sm:px-16">
-        {items.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center"
-            >
-              <p className="font-light text-sm">{item.title}</p>
-              <img
-                src={iconUrlFromCode(item.icon)}
-                className="w-12 my-1"
-                alt=""
-              />
-              {item.temp.map((temp, index) => (
-                <p
-                  className="font-medium"
-                  key={index}
-                >{`${temp.toFixed()} ${tempSymbol}`}</p>
-              ))}
-            </div>
-          );
-        })}
+        {/* Map over the items array */}
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center"
+          >
+            {/* For hourly: display time; for daily: display date */}
+            <p className="font-light text-sm">
+              {title === "hourly forecast" ? item.time : item.date}
+            </p>
+            {/* Display weather icon */}
+            <img
+              src={item.icon}
+              className="w-12 my-1"
+              alt={item.condition || "weather icon"}
+            />
+            {/* Display temperature */}
+            <p className="font-medium">
+              {title === "hourly forecast" ? (
+                `${item.temperature.toFixed()}${tempSymbol}`
+              ) : (
+                <>
+                  <span>{`${item.temperature.max.toFixed()}${tempSymbol}`}</span>
+                  <br />
+                  <span>{`${item.temperature.min.toFixed()}${tempSymbol}`}</span>
+                </>
+              )}
+            </p>
+            {/* Display condition */}
+            <p className="font-light text-xs">{item.condition}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 import Speech from "./Speech";
 
-function Inputs({
-  setQuery,
-  units,
-  setUnits,
-  cities,
-  updateQuery,
-  weather,
-}) {
+function Inputs({ setQuery, units, setUnits, cities, updateQuery, weather }) {
   const [city, setCity] = useState("");
 
   const capitalizeCityName = (cityName) => {
@@ -45,6 +38,7 @@ function Inputs({
   };
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
+    console.log("selectedUnit", selectedUnit);
     if (units !== selectedUnit) setUnits(selectedUnit);
   };
 
@@ -53,6 +47,8 @@ function Inputs({
       <div className="flex flex-row justify-center mt-4 lg:w-3/5">
         <div className="w-3/4 ml-1 mr-4">
           <input
+            id="city-search"
+            name="city"
             value={city}
             onChange={(e) => setCity(e.currentTarget.value)}
             onKeyUp={handleInputKeyUp}

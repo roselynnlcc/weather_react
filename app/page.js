@@ -18,7 +18,7 @@ export default function Home() {
   const [isNewSearch, setIsNewSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const tempSymbol = units === "metric" ? "°C" : "°F";
-  
+  const windSpeedSymbol = units === "metric" ? "km/h" : "mph";
 
   const addCity = useCallback(
     (newCity) => {
@@ -38,27 +38,28 @@ export default function Home() {
       const MAX_CITY_NUMBER = 8;
       try {
         const data = await getFormattedWeatherData({ ...query, units });
-      // Only update weather state if valid data is returned
-      if (data) {
-        setWeather(data);
-        if (
-          isNewSearch &&
-          !cities.includes(query.q) &&
-          cities.length < MAX_CITY_NUMBER
-        ) {
-          const addCityPrompt = window.confirm(
-            `Would you like to add ${query.q} to your panel?`
-          );
-          if (addCityPrompt) {
-            addCity(query.q);
+        console.log("fetched data", data);
+        // Only update weather state if valid data is returned
+        if (data) {
+          setWeather(data);
+          if (
+            isNewSearch &&
+            !cities.includes(query.q) &&
+            cities.length < MAX_CITY_NUMBER
+          ) {
+            const addCityPrompt = window.confirm(
+              `Would you like to add ${query.q} to your panel?`
+            );
+            if (addCityPrompt) {
+              addCity(query.q);
+            }
           }
+          setIsNewSearch(false);
         }
-        setIsNewSearch(false);
-      }
 
         setIsLoading(false); // Stop loading after data is fetched
       } catch (error) {
-        console.error('Error fetching weather data:', error);
+        console.error("Error fetching weather data:", error);
         setIsLoading(false); // Stop loading in case of error
       }
     };
@@ -66,21 +67,22 @@ export default function Home() {
     fetchWeather();
   }, [query, units, isNewSearch]);
 
-    // Loading page content
-    if (isLoading) {
-      return (
-        <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-sky-200 via-blue-200 to-green-100">
-          <div className="flex flex-col justify-center items-center p-4 w-60 h-60 bg-white bg-opacity-90 rounded-full shadow-xl border-2 border-dotted border-sky-600">
-            <div className="text-center ">
-              <p className="text-4xl p-1 font-semibold text-sky-500">Ghibli</p>
-              <p className="text-3xl p-1 font-semibold text-sky-400">Meteo</p>
-            </div>
+  // Loading page content
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-sky-200 via-blue-200 to-green-100">
+        <div className="flex flex-col justify-center items-center p-4 w-60 h-60 bg-white bg-opacity-90 rounded-full shadow-xl border-2 border-dotted border-sky-600">
+          <div className="text-center ">
+            <p className="text-4xl p-1 font-semibold text-sky-500">Ghibli</p>
+            <p className="text-3xl p-1 font-semibold text-sky-400">Meteo</p>
           </div>
-          <p className="animate-pulse text-lg font-medium mt-4 text-white text-center">Loading ...</p>
         </div>
-      );
-    }
-    
+        <p className="animate-pulse text-lg font-medium mt-4 text-white text-center">
+          Loading ...
+        </p>
+      </div>
+    );
+  }
 
   const updateQuery = (newQuery, newSearch = false) => {
     // Check if the city is already in the list
@@ -127,13 +129,13 @@ export default function Home() {
       />
       {/* Main content area */}
       <div className="lg:flex lg:flex-row lg:mt-10 lg:mb-20">
-      {/* Current Weather area */}
+        {/* Current Weather area */}
         <div className="lg:w-2/5 lg:mr-4 bg-violet-100 bg-opacity-60 rounded-md">
-        {isLoading}
+          {isLoading}
           {weather && (
             <div>
               <TimeAndLocation weather={weather} />
-              
+
               <TemperatureAndDetails
                 weather={weather}
                 tempSymbol={tempSymbol}
@@ -147,12 +149,30 @@ export default function Home() {
             <>
               <Forecast
                 title="hourly forecast"
-                items={weather.hourly}
+                items={weather.hourly.map((hour) => ({
+                  time: new Date(hour.time).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }),
+                  temperature: hour.temperature,
+                  condition: hour.condition,
+                  icon: hour.icon,
+                }))}
                 tempSymbol={tempSymbol}
               />
               <Forecast
                 title="daily forecast"
-                items={weather.daily}
+                items={weather.daily.map((day) => ({
+                  date: new Date(day.date).toLocaleDateString([], {
+                    weekday: "long",
+                  }), // "Tuesday"
+                  temperature: {
+                    max: day.temperature.max,
+                    min: day.temperature.min,
+                  },
+                  condition: day.condition,
+                  icon: day.icon,
+                }))}
                 tempSymbol={tempSymbol}
               />
             </>
