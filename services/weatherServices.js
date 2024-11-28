@@ -5,10 +5,12 @@ console.log(API_KEY);
 // 1. Get CurrentWeather, destructure it, format it
 
 async function fetchCurrentWeather(location, units) {
+  console.log(`${BASE_URL}/current.json?key=${API_KEY}&q=${location}`);
   const response = await fetch(
     `${BASE_URL}/current.json?key=${API_KEY}&q=${location}`
   );
   const data = await response.json();
+
 
   if (data.error) {
     throw new Error(
