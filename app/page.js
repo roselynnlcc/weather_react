@@ -37,7 +37,10 @@ export default function Home() {
       setIsLoading(true);
       const MAX_CITY_NUMBER = 8;
       try {
+        console.log(query);
+        console.log(units);
         const data = await getFormattedWeatherData({ ...query, units });
+        console.log(data);
         // Only update weather state if valid data is returned
         if (data) {
           setWeather(data);

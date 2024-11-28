@@ -7,10 +7,6 @@ const Speech = ({ weather }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const speechSynthesis = window.speechSynthesis;
-
-      for (const voice of speechSynthesis.getVoices()) {
-        console.log(voice.name, "local: " + voice.localService);
-      }
     }
   }, []);
 
