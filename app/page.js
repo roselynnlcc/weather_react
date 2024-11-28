@@ -10,7 +10,7 @@ import getFormattedWeatherData from "@/services/weatherServices";
 import { getBackgroundImage } from "../utils/backgroundHelpers";
 
 export default function Home() {
-  const [query, setQuery] = useState("calgary");
+  const [query, setQuery] = useState("Calgary");
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const initialCities = ["Calgary", "Hong Kong", "London", "Sydney"];

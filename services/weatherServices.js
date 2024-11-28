@@ -89,11 +89,16 @@ async function fetchForecastWeather(location, units, days, hours) {
 // 3. getFormattedWeatherData
 async function getFormattedWeatherData({ q, units, days = 4, hours = 5 }) {
   try {
+    console.log("getFormattedWeatherData");
+    console.log("q", q);
+    console.log("units", units);
+    console.log("days", days);
+    console.log("hours", hours);
     const [currentWeather, forecastWeather] = await Promise.all([
       fetchCurrentWeather(q, units),
       fetchForecastWeather(q, units, days, hours),
     ]);
-
+    
     return { ...currentWeather, ...forecastWeather };
   } catch (error) {
     console.error("Error in getFormattedWeatherData:", error.message);
